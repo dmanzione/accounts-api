@@ -33,7 +33,7 @@ public class Account {
     @ManyToOne
     private User customer;
 
-
+    Boolean deleted = false;
     public Account(Long pk, String number, User customer, Instant dateCreated, Double balance,  AccountStatus status, AccountType type, User bankAgent) {
         this.pk = pk;
         this.number = "A-" + UUID.randomUUID().toString();

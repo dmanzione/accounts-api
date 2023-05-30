@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/accounts-api/accounts")
-@CrossOrigin(origins={"*","http://localhost:3000/accounts/**","http://localhost:3000/accounts/*","**"})
+@CrossOrigin(origins = "*")
 @Validated
 public class AccountController {
 
@@ -44,15 +44,19 @@ public class AccountController {
        else
            return accountService.retrieveAllAccounts(page);
     }
+    @RequestMapping(value = {"/?page={page}&size={size}/", "/?page={page}&size={size}"}, method = RequestMethod.GET)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity<Page<Account>> getAllAccounts(PagedResourcesAssembler<Account> page) {
+
+            return accountService.retrieveAllAccounts(page);
+    }
 
     @GetMapping({"/{accountId}/products","/{accountId}/products/"})
     List<FinancialProduct> getFinancialProducts(@PathParam("accountId") Long accountId){
         return financialProductService.getProductsByAccountPk(accountId);
     }
-    @GetMapping("/accountslist")
-    List<Account> getAllAccounts(){
-        return accountService.retrieveAllAccounts();
-    }
+
     @GetMapping({"/{accountId}/","/{accountId}"})
     @ResponseStatus(HttpStatus.OK)
     Account getAccountById(@PathVariable Long accountId){
