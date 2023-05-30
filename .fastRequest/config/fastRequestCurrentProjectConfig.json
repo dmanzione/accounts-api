@@ -1,0 +1,48 @@
+{
+  "dataList": [
+    {
+      "hostGroup": [],
+      "name": "AccountsAPI"
+    },
+    {
+      "hostGroup": [
+        {
+          "env": "local",
+          "url": "http://localhost:9000"
+        }
+      ],
+      "name": "accounts"
+    }
+  ],
+  "envList": [
+    "local"
+  ],
+  "headerList": [
+    {
+      "enabled": true,
+      "type": "Authorization",
+      "value": "Basic YWRtaW46cGFzc3dvcmQ="
+    }
+  ],
+  "postScript": "",
+  "preScript": "",
+  "projectList": [
+    "AccountsAPI",
+    "accounts"
+  ],
+  "syncModel": {
+    "branch": "master",
+    "domain": "https://github.com",
+    "enabled": false,
+    "namingPolicy": "byDoc",
+    "owner": "",
+    "repo": "",
+    "repoUrl": "",
+    "syncAfterRun": false,
+    "token": "",
+    "type": "github"
+  },
+  "urlEncodedKeyValueList": [],
+  "urlParamsKeyValueList": [],
+  "urlSuffix": ""
+}

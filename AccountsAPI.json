@@ -1,0 +1,3093 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AccountsAPI",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9000",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/accounts-api/addresses": {
+      "get": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "get-address",
+        "operationId": "getCollectionResource-address-get_1",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Zero-based page index (0..N)",
+            "required": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The size of the page to be returned",
+            "required": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAddress"
+                }
+              },
+              "application/x-spring-data-compact+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAddress"
+                }
+              },
+              "text/uri-list": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "create-address",
+        "operationId": "postCollectionResource-address-post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/addresses/{id}": {
+      "get": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "get-address",
+        "operationId": "getItemResource-address-get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "update-address",
+        "operationId": "putItemResource-address-put",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "delete-address",
+        "operationId": "deleteItemResource-address-delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "address-entity-controller"
+        ],
+        "description": "patch-address",
+        "operationId": "patchItemResource-address-patch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/profile": {
+      "get": {
+        "tags": [
+          "profile-controller"
+        ],
+        "operationId": "listAllFormsOfMetadata_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepresentationModelObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/profile/addresses": {
+      "get": {
+        "tags": [
+          "profile-controller"
+        ],
+        "operationId": "descriptor_1_1_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/alps+json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts/{pk}/": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getSavingsAccountByPrivateKey",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "putSavingsAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavingsAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "deleteSavingsAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts/{pk}": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getSavingsAccountByPrivateKey_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "putSavingsAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavingsAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "deleteSavingsAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts/{pk}/": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getLoanAccountByPrivateKey",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "putLoanAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "deleteLoanAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts/{pk}": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getLoanAccountByPrivateKey_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "putLoanAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "deleteLoanAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts/{pk}": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getCreditCardAccountByPrivateKey",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "putCreditCardAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditCardAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "deleteCreditCardAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts/{pk}/": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getCreditCardAccountByPrivateKey_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "putCreditCardAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditCardAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "deleteCreditCardAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts/{pk}": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getCheckingAccountByPrivateKey",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "putCheckingAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckingAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "deleteCheckingAccount",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts/{pk}/": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getCheckingAccountByPrivateKey_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "putCheckingAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckingAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "deleteCheckingAccount_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getAllSavingsAccounts_2",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "postSavingsAccount",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavingsAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts/": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getAllSavingsAccounts_3",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "postSavingsAccount_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavingsAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavingsAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts/": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getAllLoanAccounts_2",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "postLoanAccount",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getAllLoanAccounts_3",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "postLoanAccount_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts/": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getAllCreditCardAccounts_2",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "postCreditCardAccount",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditCardAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getAllCreditCardAccounts_3",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "postCreditCardAccount_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditCardAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditCardAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getAllCheckingAccounts_2",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "postCheckingAccount",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckingAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts/": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getAllCheckingAccounts_3",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "postCheckingAccount_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckingAccountDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckingAccountDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/savings-accounts": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllSavingsAccounts",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/savings-accounts/": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllSavingsAccounts_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/loan-accounts/": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllLoanAccounts",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/loan-accounts": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllLoanAccounts_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/credit-card-accounts/": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllCreditCardAccounts",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/credit-card-accounts": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllCreditCardAccounts_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/checking-accounts": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllCheckingAccounts",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/checking-accounts/": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllCheckingAccounts_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/accounts": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllAccounts",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/users/{userPk}/accounts/": {
+      "get": {
+        "tags": [
+          "users-controller"
+        ],
+        "operationId": "getAllAccounts_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts/users/{userPk}/": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getAllSavingsAccountsByAccountOwner",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/savings-accounts/users/{userPk}": {
+      "get": {
+        "tags": [
+          "savings-account-controller"
+        ],
+        "operationId": "getAllSavingsAccountsByAccountOwner_1",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerSavingsAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelSavingsAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts/users/{pk}": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getAllLoanAccountsOfUser",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/loan-accounts/users/{pk}/": {
+      "get": {
+        "tags": [
+          "loan-account-controller"
+        ],
+        "operationId": "getAllLoanAccountsOfUser_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerLoanAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelLoanAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts/users/{pk}/": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getCreditCardAccountsByAccountOwner",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/creditCard-accounts/users/{pk}": {
+      "get": {
+        "tags": [
+          "credit-card-account-controller"
+        ],
+        "operationId": "getCreditCardAccountsByAccountOwner_1",
+        "parameters": [
+          {
+            "name": "pk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCreditCardAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCreditCardAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts/users/{userPk}": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getAllCheckingAccountsByAccountOwner",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/checking-accounts/users/{userPk}/": {
+      "get": {
+        "tags": [
+          "checking-account-controller"
+        ],
+        "operationId": "getAllCheckingAccountsByAccountOwner_1",
+        "parameters": [
+          {
+            "name": "userPk",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerCheckingAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelCheckingAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/accounts/users/{userId}": {
+      "get": {
+        "tags": [
+          "account-controller"
+        ],
+        "operationId": "getAllAccountsByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/accounts/": {
+      "get": {
+        "tags": [
+          "account-controller"
+        ],
+        "operationId": "getAllAccounts_2",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts-api/accounts": {
+      "get": {
+        "tags": [
+          "account-controller"
+        ],
+        "operationId": "getAllAccounts_3",
+        "parameters": [
+          {
+            "name": "assembler",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PagedResourcesAssemblerAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelEntityModelAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AbstractJsonSchemaPropertyObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "readOnly": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "JsonSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+            }
+          },
+          "requiredProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "$schema": {
+            "type": "string"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "deprecation": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "templated": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RepresentationModelObject": {
+        "type": "object",
+        "properties": {
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "EntityModelAddress": {
+        "required": [
+          "city",
+          "dateCreated",
+          "state",
+          "street1",
+          "zip"
+        ],
+        "type": "object",
+        "properties": {
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 2,
+            "minLength": 0,
+            "type": "string"
+          },
+          "zip": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string"
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PageMetadata": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PagedModelEntityModelAddress": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "addresses": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelAddress"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "AddressRequestBody": {
+        "required": [
+          "city",
+          "dateCreated",
+          "state",
+          "street1",
+          "zip"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "street1": {
+            "type": "string"
+          },
+          "street2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 2,
+            "minLength": 0,
+            "type": "string"
+          },
+          "zip": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string"
+          }
+        }
+      },
+      "AccountDto": {
+        "required": [
+          "owner",
+          "rate"
+        ],
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "balance": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "FROZEN",
+              "CLOSED"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "CHECKING",
+              "SAVINGS",
+              "CREDIT_CARD",
+              "LOAN",
+              "REWARDS_PROGRAM",
+              "UNKNOWN"
+            ]
+          }
+        }
+      },
+      "SavingsAccountDto": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountDto"
+          }
+        }
+      },
+      "LoanAccountDto": {
+        "required": [
+          "account",
+          "initialAmount",
+          "paymentDate",
+          "rate",
+          "totalPaid"
+        ],
+        "type": "object",
+        "properties": {
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "account": {
+            "$ref": "#/components/schemas/AccountDto"
+          },
+          "totalPaid": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "initialAmount": {
+            "minimum": 100,
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate": {
+            "maximum": 18,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanType": {
+            "type": "string",
+            "enum": [
+              "PERSONAL_LOAN",
+              "AUTO_LOAN",
+              "STUDENT_LOAN",
+              "MORTGAGE_LOAN",
+              "HOME_EQUITY_LOAN",
+              "CREDIT_BUILDER_LOAN",
+              "DEBT_CONSOLIDATION_LOAN",
+              "PAYDAY_LOAN"
+            ]
+          }
+        }
+      },
+      "CreditCardAccountDto": {
+        "required": [
+          "account",
+          "paymentDate"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountDto"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "creditCardType": {
+            "type": "string",
+            "enum": [
+              "REWARDS_CREDIT_CARD",
+              "CASH_BACK_CREDIT_CARD",
+              "TRAVEL_CREDIT_CARD",
+              "BUSINESS_CREDIT_CARD",
+              "CO_BRANDED_CREDIT_CARD",
+              "STORE_CREDIT_CARD",
+              "STARTER_STUDENT_CREDIT_CARD",
+              "STARTER_SECURED_CREDIT_CARD",
+              "STARTER_UNSECURED_CREDIT_CARD"
+            ]
+          }
+        }
+      },
+      "CheckingAccountDto": {
+        "required": [
+          "account"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountDto"
+          }
+        }
+      },
+      "PagedResourcesAssemblerSavingsAccount": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "Account": {
+        "required": [
+          "id",
+          "owner",
+          "pk",
+          "rate"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "balance": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "FROZEN",
+              "CLOSED"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "CHECKING",
+              "SAVINGS",
+              "CREDIT_CARD",
+              "LOAN",
+              "REWARDS_PROGRAM",
+              "UNKNOWN"
+            ]
+          }
+        }
+      },
+      "EntityModelSavingsAccount": {
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelSavingsAccount": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "savingsAccounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelSavingsAccount"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "PagedResourcesAssemblerLoanAccount": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelLoanAccount": {
+        "required": [
+          "account",
+          "initialAmount",
+          "paymentDate",
+          "rate",
+          "totalPaid"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "totalPaid": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "initialAmount": {
+            "minimum": 100,
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate": {
+            "maximum": 18,
+            "minimum": 2,
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanType": {
+            "type": "string",
+            "enum": [
+              "PERSONAL_LOAN",
+              "AUTO_LOAN",
+              "STUDENT_LOAN",
+              "MORTGAGE_LOAN",
+              "HOME_EQUITY_LOAN",
+              "CREDIT_BUILDER_LOAN",
+              "DEBT_CONSOLIDATION_LOAN",
+              "PAYDAY_LOAN"
+            ]
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelLoanAccount": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "loanAccounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelLoanAccount"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "PagedResourcesAssemblerCreditCardAccount": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelCreditCardAccount": {
+        "required": [
+          "account",
+          "paymentDate"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "creditCardType": {
+            "type": "string",
+            "enum": [
+              "REWARDS_CREDIT_CARD",
+              "CASH_BACK_CREDIT_CARD",
+              "TRAVEL_CREDIT_CARD",
+              "BUSINESS_CREDIT_CARD",
+              "CO_BRANDED_CREDIT_CARD",
+              "STORE_CREDIT_CARD",
+              "STARTER_STUDENT_CREDIT_CARD",
+              "STARTER_SECURED_CREDIT_CARD",
+              "STARTER_UNSECURED_CREDIT_CARD"
+            ]
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelCreditCardAccount": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "creditCardAccounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelCreditCardAccount"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "PagedResourcesAssemblerCheckingAccount": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelCheckingAccount": {
+        "required": [
+          "account"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "account": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelCheckingAccount": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "checkingAccounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelCheckingAccount"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "PagedResourcesAssemblerAccount": {
+        "type": "object",
+        "properties": {
+          "forceFirstAndLastRels": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "EntityModelAccount": {
+        "required": [
+          "id",
+          "owner",
+          "pk",
+          "rate"
+        ],
+        "type": "object",
+        "properties": {
+          "pk": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "balance": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "FROZEN",
+              "CLOSED"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "CHECKING",
+              "SAVINGS",
+              "CREDIT_CARD",
+              "LOAN",
+              "REWARDS_PROGRAM",
+              "UNKNOWN"
+            ]
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelEntityModelAccount": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelAccount"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+package com.binary_beasts.binary_banking.accounts_api.model;
+
+public enum CreditCardType {
+    REWARDS_CREDIT_CARD,
+    CASH_BACK_CREDIT_CARD,
+    TRAVEL_CREDIT_CARD,
+    BUSINESS_CREDIT_CARD,
+    CO_BRANDED_CREDIT_CARD,
+    STORE_CREDIT_CARD,
+    STARTER_STUDENT_CREDIT_CARD,
+    STARTER_SECURED_CREDIT_CARD,
+    STARTER_UNSECURED_CREDIT_CARD
+}
