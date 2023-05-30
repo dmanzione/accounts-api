@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="postgres" newRepositoryParent="org.springframework.data.repository.ListCrudRepository">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="f048740a-5736-46c7-bbeb-413a0b410bf7" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/binary_beasts/binary_banking/accounts_api/model" />
+  </component>
+</project>
