@@ -17,4 +17,13 @@ public class UserService {
    public List<User> retrieveAllUsers(){
        return userRepository.findAll();
    }
+
+    public User retrieveUser(Long userPk) {
+       return userRepository.findById(userPk).get();
+    }
+
+    public List<User> retrieveAllCustomers() {
+
+                return userRepository.findAllByRole(3L);
+   }
 }

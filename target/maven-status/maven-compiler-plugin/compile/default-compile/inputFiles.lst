@@ -11,6 +11,7 @@ C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\repository\CustomerRepository.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\controller\CustomerController.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\exception\NoSuchLoanException.java
+C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\InterestRate.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Loan.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\controller\AccountController.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\mapper\LoanMapper.java
@@ -22,6 +23,7 @@ C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\exception\UserNotFoundException.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\mapper\UserMapper.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\service\AccountService.java
+C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\OverdraftProtection.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Transaction.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\exception\InvalidTransactionException.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\UserRole.java
@@ -30,6 +32,7 @@ C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\exception\InvalidAccountDetailsException.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\dto\FinancialProductDto.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Customer.java
+C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\controller\FinancialProductController.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\dto\CreditCardAccountDto.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\mapper\EmployeeMapper.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\TransactionCategory.java
@@ -48,6 +51,7 @@ C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\service\TransactionService.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\AccountsApplication.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\dto\SavingsAccountDto.java
+C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Balance.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Reward.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Address.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\dto\EmployeeDto.java
@@ -70,4 +74,5 @@ C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\Card.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\mapper\TransactionMapper.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\repository\AddressRepository.java
+C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\service\StripeService.java
 C:\Users\donat\IdeaProjects\accounts-api\src\main\java\com\binary_beasts\binary_banking\accounts_api\model\User.java

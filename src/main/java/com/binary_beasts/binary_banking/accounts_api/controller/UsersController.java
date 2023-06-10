@@ -31,11 +31,17 @@ public class UsersController {
         return userService.retrieveAllUsers();
     }
 
-    @GetMapping({"/{userPk}/accounts", "/{userPk}/accounts/"})
+    @GetMapping({"/{userPk}/accounts", "/{userPk}/a" +
+            "ccounts/"})
     public ResponseEntity<PagedModel<EntityModel<Account>>> getAllAccounts(@PathVariable Long userPk, PagedResourcesAssembler<Account> assembler) {
         return accountService.retrieveAllAccountsByUserId(userPk, assembler);
     }
 
+    @GetMapping({"/{userPk}/","/{userPk}"})
+    public User getUser(@PathVariable("userPk") Long userPk) {
+
+        return userService.retrieveUser(userPk);
+    }
 
 
 }
